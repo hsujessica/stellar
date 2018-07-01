@@ -1,6 +1,6 @@
 import React from 'react';
-import SingleFeature from './SingleFeature'
-import axios from 'axios'
+import SingleFeature from './SingleFeature';
+import axios from 'axios';
 
 const features = [
   {
@@ -37,27 +37,26 @@ const features = [
   },
 ];
 
-
 export default class Features extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super();
     this.state = {
       features: features
-    }
+    };
   }
 
-  async componentDidMount () {
-    // const res = await axios.get('/api/all');
+  async componentDidMount() {
+    // const res = await axios.get('/api/');
     // this.setState({features: res.data});
   }
 
-  render () {
+  render() {
     return (
       <div>
         {this.state.features.map(feature => (
         <SingleFeature feature={feature} />
         ))}
       </div>
-    )
+    );
   }
-};
+}

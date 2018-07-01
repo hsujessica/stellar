@@ -1,7 +1,7 @@
 import React from 'react';
-import {Voting} from './Voting';
+import Voting from './Voting';
 
-export default class Features extends React.Component {
+export default class SingleFeature extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,13 +11,13 @@ export default class Features extends React.Component {
 
   render() {
     return (
-      <div key ={this.props.feature.id}>
-        <h2>{this.props.feature.title}</h2>
-        <p>{this.props.feature.description}</p>
-        <img src={this.props.feature.imgURL} />
-        <a href={this.props.feature.siteURL}>Site</a>
-        <Voting votes={this.props.feature.votes} />
+      <div key ={this.state.feature.id} className='single-feature'>
+        <h2>{this.state.feature.title}</h2>
+        <p>{this.state.feature.description}</p>
+        <img src={this.state.feature.imgURL} />
+        <a href={this.state.feature.siteURL}>Site</a>
+        <Voting votes={this.state.feature.votes} />
       </div>
-    )
+    );
   }
 }
