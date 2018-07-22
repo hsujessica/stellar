@@ -13,12 +13,14 @@ export default class AddForm extends React.Component {
       },
       loading: false,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    const newState = this.state;
+    newState.submission[event.target.name] = event.target.value;
+    this.setState(newState);
   }
 
   async handleSubmit(event) {
@@ -27,7 +29,7 @@ export default class AddForm extends React.Component {
     this.setState({
       loading: true
     });
-    await axios.post('/api/', this.state.submission);
+    await axios.post('/api/features', submission);
     this.setState = {
       submission: {
         title: '',
@@ -37,21 +39,32 @@ export default class AddForm extends React.Component {
       },
       loading: false,
     };
+    this.props.history.push('/features');
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className='add-feature-form'>
-          <label htmlFor='title'>Title</label>
-            <input type ='text' name='title' onChange={this.handleChange} />
-          <label htmlFor='description'>Description</label>
-            <input type ='textarea' name='description' onChange={this.handleChange} />
-          <label htmlFor='image'>Add Image</label>
-            <input type ='text' name='imageURL' onChange={this.handleChange} />
-          <label htmlFor='site'>Site</label>
-            <input type ='text' name='siteURL' onChange={this.handleChange} />
-          <button type='submit' name='submit' disabled={this.state.loading}>{this.state.loading ? '...' : 'Submit'}</button>
+          <div className='form-item'>
+            <label htmlFor='title'>Title </label>
+            <input type ='text' name='title' onChange={this.handleChange} className='form-input' />
+          </div>
+          <div className='form-item'>
+            <label htmlFor='description'>Description </label>
+            <textarea name='description' rows='10' onChange={this.handleChange} className='form-input' />
+          </div>
+          <div className='form-item'>
+            <label htmlFor='image'>Add Image </label>
+            <input type ='text' name='imageURL' onChange={this.handleChange} className='form-input' />
+          </div>
+          <div className='form-item'>
+            <label htmlFor='site'>Site </label>
+            <input type ='text' name='siteURL' onChange={this.handleChange} className='form-input' />
+            </div>
+          <div className='form-item'>
+            <button type='submit' name='submit' disabled={this.state.loading} className='btn' >{this.state.loading ? '...' : 'Submit'}</button>
+          </div>
         </form>
       </div>
     )

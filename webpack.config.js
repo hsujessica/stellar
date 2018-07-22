@@ -1,9 +1,10 @@
 module.exports = {
-  entry: './client', // the starting point for our program
+  entry: ['babel-polyfill', './client'], // the starting point for our program
   output: {
-    path: __dirname + '/public', // the absolute path for the directory where we want the output to be placed
-    filename: 'bundle.js' // the name of the file that will contain our output - we could name this whatever we want, but bundle.js is typical
+    path: __dirname, // the absolute path for the directory where we want the output to be placed
+    filename: './public/bundle.js' // the name of the file that will contain our output - we could name this whatever we want, but bundle.js is typical
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -12,9 +13,13 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
     ]
   }
 }

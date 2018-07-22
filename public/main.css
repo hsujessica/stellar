@@ -1,0 +1,107 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 2% 5%;
+  font-size: 14px;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+a, a:active, a:visited {
+  color: rgba(27, 20, 40, 1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(27, 20, 40, .7);
+}
+
+.nav {
+  padding: 0;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  width: 33%;
+  font-size: 13px;
+}
+
+.voting-btn {
+  background-color: rgba(238, 98, 82, 0.5);
+  font-size: 18px;
+}
+
+.btn {
+  background-color: rgba(238, 98, 82, 0.5);
+}
+
+.add-feature-form {
+  display: flex;
+  flex-direction: column;
+  margin: 3% auto;
+  width: 50%;
+  background: rgba(216, 219, 226, 0.9);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 3% auto;
+  width: 50%;
+  background: rgba(216, 219, 226, 0.9);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px dotted rgba(216, 219, 226, 0.9);
+  padding: 2%;
+  background: rgba(216, 219, 226, 0.9);
+}
+
+.feature-preview {
+  display: flex;
+  align-items: center;
+  padding: 3%;
+  border-bottom: 1px dotted rgba(216, 219, 226, 0.9);
+}
+
+.feature-left {
+  padding: 0px 10px;
+}
+
+.feature-right {
+  padding: 0px 10px;
+}
+
+img {
+  width: 100%;
+}
+
+.single-feature {
+  margin: 5%;
+}
